@@ -49,7 +49,9 @@ direct_repositories:
     prefixes: ["redhat-user-workloads/jetstack-cert-manager-"]
     keywords: ["jetstack-cert-manager"]
   spire_operator:
-    repository: "https://github.com/openshift/spire-operator"
+    repository: "https://github.com/openshift/zero-trust-workload-identity-manager"
+    # The old spire-operator URL redirects to this repository.
+    exact_components: ["ztwim", "zero-trust-workload-identity-manager", "spire-operator"]
     exact_images:
       - "zero-trust-workload-identity-manager/zero-trust-workload-identity-manager-rhel9"
       - "zero-trust-workload-identity-manager/zero-trust-workload-identity-manager-operator-bundle"
@@ -141,6 +143,7 @@ release_submodules:
     branch_rule: "ztwim-X.Y -> release-X.Y; ztwim-1.0 -> release-1.0.0"
     submodules:
       zero-trust-workload-identity-manager:
+        exact_components: ["ztwim", "zero-trust-workload-identity-manager", "spire-operator"]
         exact_images: ["zero-trust-workload-identity-manager/zero-trust-workload-identity-manager-rhel9"]
         prefixes: ["zero-trust-workload-identity-manager/zero-trust-workload-identity-manager-operator-bundle"]
       spiffe-spire:
